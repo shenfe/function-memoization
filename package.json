@@ -1,0 +1,35 @@
+{
+    "dependencies": {
+        "json-stable-stringify": "^1.0.1"
+    },
+    "name": "function-memoization",
+    "description": "Make function data cache.",
+    "version": "0.1.0",
+    "main": "src/index.js",
+    "directories": {
+        "test": "test"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "node test/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shenfe/function-memoization.git"
+    },
+    "keywords": [
+        "function",
+        "method",
+        "memoization",
+        "data",
+        "cache",
+        "async",
+        "callback"
+    ],
+    "author": "hengwu",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/shenfe/function-memoization/issues"
+    },
+    "homepage": "https://github.com/shenfe/function-memoization#readme"
+}
