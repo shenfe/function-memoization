@@ -3,6 +3,11 @@
  */
 var stringify = require('json-stable-stringify');
 
+/**
+ * Generate a unique string for the argument data.
+ * @param  {array} argArr   the array of arguments
+ * @return {string|null}    the unique string or null
+ */
 var argDataToUniqueString = function (argArr) {
     if (Object.prototype.toString.call(argArr) !== '[object Array]') return null;
     var r = {};
@@ -14,7 +19,12 @@ var argDataToUniqueString = function (argArr) {
 };
 
 /**
- * Make sure that the form parameter list of function `func` is some data and one (or no) callback function in the end.
+ * Make a new function with data memoization for the callback of the origin function.
+ * @param  {function} func              the origin function
+ * @param  {object|undefined} target    the target of the method
+ * @return {function}                   the new function
+ * @note   Make sure that the form parameter list of function `func` is
+ *         some data and one (or no) callback function in the end.
  */
 var cacheFunction = function (func, target) {
     var cache = {};
@@ -31,6 +41,12 @@ var cacheFunction = function (func, target) {
     };
 };
 
+/**
+ * Enable memoization for methods of a target.
+ * @param  {object} target                      the target of the methods
+ * @param  {string|array<string>} methodName    the method name(s)
+ * @return {object}                             the target
+ */
 var cacheMethod = function (target, methodName) {
     if (typeof methodName === 'string') methodName = [methodName];
     if (Object.prototype.toString.call(methodName) !== '[object Array]') return null;
@@ -45,4 +61,3 @@ module.exports = {
     cacheFunction: cacheFunction,
     cacheMethod: cacheMethod
 };
-
