@@ -1,2 +1,2 @@
-# function-cache
-Make function data cache.
+# function-memoization
+Make function memoization via data cache.
