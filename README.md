@@ -27,10 +27,10 @@ obj.method(/* args */);
 Boolean value, whether to execute the callback function asynchronously, `false` by default.
 
 ```js
-func = cacheFunction(func, true);
+func = cacheFunction(func, { async: true });
 func(/* args */);
 
-cacheMethod(obj, 'method', true);
+cacheMethod(obj, 'method', { async: true });
 obj.method(/* args */);
 ```
 
