@@ -1,11 +1,19 @@
 const { cacheFunction, cacheMethod } = require('../src/index.js');
 
-const testFunc1 = (p1, p2, p3, callback) => {
-    // todo
+let testFunc1 = (p1, p2, p3, callback) => {
+    console.log('func1 begins');
+    let arr = ['func1', p1, p2.n, p3[0]];
+    setTimeout(function () {
+        callback(arr);
+    }, 1000);
 };
 
 const testFunc2 = function (p1, p2, p3, callback) {
-    // todo
+    console.log('func2 begins');
+    let arr = ['func2', p1, p2.n, p3[0]];
+    setTimeout(function () {
+        callback(arr);
+    }, 1000);
 };
 
 const obj = {
@@ -15,10 +23,26 @@ const obj = {
     testFunc2
 };
 
-cacheFunction(testFunc1);
+testFunc1 = cacheFunction(testFunc1, {
+    async: true
+});
 
 cacheMethod(obj, 'testFunc2');
 
-testFunc1('', {}, [], function (res) {});
+testFunc1(1, { n: 2 }, [3], function (res) {
+    console.log(res);
+});
 
-obj.testFunc2('', {}, [], function (res) {});
+obj.testFunc2(4, { n: 5 }, [6], function (res) {
+    console.log(res);
+});
+
+setTimeout(function () {
+    testFunc1(1, { n: 2 }, [3], function (res) {
+        console.log(res);
+    });
+
+    obj.testFunc2(4, { n: 5 }, [6], function (res) {
+        console.log(res);
+    });
+}, 1000);
