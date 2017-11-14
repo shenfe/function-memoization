@@ -37,6 +37,8 @@ obj.method(/* args */);
 
 ## Example
 
+The following is an example:
+
 ```js
 const { cacheFunction, cacheMethod } = require('../src/index.js');
 
@@ -90,6 +92,15 @@ setTimeout(function () {
     });
 }, 1000);
 ```
+
+It will output:
+
+    function1 begins
+    function2 begins
+    [ 'function1', 1, 2, 3 ]
+    [ 'function2', 4, 5, 6 ]
+    [ 'function2', 4, 5, 6 ]
+    [ 'function1', 1, 2, 3 ]
 
 ## License
 MIT
