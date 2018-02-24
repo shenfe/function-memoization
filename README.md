@@ -1,9 +1,10 @@
 # function-memoization
-Make function memoization via data cache, to skip some async process (for the same data) and call the callback function directly.
+
+♻️ Make function memoization via data cache, to skip some async process (for the same data) and call the callback function directly.
 
 ## Installation
 ```sh
-npm install --save function-memoization
+$ npm install --save function-memoization
 ```
 
 ## Usage
@@ -21,6 +22,8 @@ let obj = {
 cacheMethod(obj, 'method');
 obj.method(/* args */);
 ```
+
+> Note: make sure **the cached data amount is in control**.
 
 ## Options
 
